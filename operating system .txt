@@ -1,0 +1,310 @@
+						
+GitHub account 
+user ==> ritikFulzele
+pass ==> RakRos!@#123
+
+DockerHub account
+user ==> ritik149
+pass  ==> RakRos!@#123
+
+
+Jenkins Account
+user ==> admin 
+pass == > admin 
+
+
+
+
+
+					Git 
+
+Step 1) Create a new repo on github
+
+step 2) create a folder and add java files in that folder
+
+step 3) into that folder on the top of that , click on path and then type "cmd"
+
+step 4) Then type below commands
+
+
+###### First Push 
+
+echo "# Done" >> README.md
+
+git init
+
+git add README.md
+
+
+git add .
+
+
+git commit -m "first commit"
+
+git branch -M main
+
+git remote add origin https://github.com/ritikFulzele/rose.git
+
+git push -u origin main
+
+==================================
+
+#######Second Push : Change or update the code and push to github 
+
+
+git add .
+
+
+git commit -m "Second Commit"
+
+git branch -M main
+
+git add origin https://github.com/ritikFulzele/rose.git
+
+git push -u origin main
+
+===================================
+
+########## create new branch and add to the main branch in git
+
+git status		
+				
+git checkout -b rakesh			==> rakesh is new branch name
+(now modify or add somefiles or update files) 
+
+git add .
+
+git commit -m "Your commit message(merge files)"
+
+git push origin rakesh
+
+git checkout main
+
+git merge rakesh
+
+git push origin main
+
+
+===========================================================================================================================================
+===============================================================================================================
+
+					Docker 
+												
+		
+step 1) make a folder and add "Dockerfile and java file" in that folder
+
+step 2) open vs code and then open "powershell" and then follow commands
+
+docker run -dit mysql  ==> pull the image if not found
+
+
+Dockerfile
+FROM openjdk:latest
+WORKDIR /app
+COPY Hello.java /app/Hello.java
+RUN javac Hello.java
+CMD [ "java","Hello" ]
+
+
+
+ 
+docker build -t hello .
+
+docker run -it hello
+
+docker images
+
+
+
+go to dockerhub 
+go to repository
+create repository
+
+
+
+go to terminal 
+
+docker login -u ritik149
+password : RakRos!@#123
+
+
+docker logout
+
+docker tag hello ritik149/repo:dockerimage
+
+docker push ritik149/repo:dockerimage
+
+docker pull ritik149/repo:dockerimage
+
+
+dockerimage
+
+take screenshot and paste it 
+
+ 
+==================================================================================================================================
+	
+										Jenkins
+
+
+download Jenkins ==> Jenkins.io/download/
+
+jenkins path ==> C:\Users\dac.STUDENTSDC      ==> delete the .jenkins file 
+
+generating jenkins file  ==>   java -jar Jenkins.war --httpPort=9094
+
+copy the code generated after clicking above code
+
+
+
+New Item => enter item => freestyle project ==> 
+
+
+jenkins login
+user ==> admin 
+pass == > admin 
+
+
+
+====================================================================================================================================
+
+									Selenium 
+
+
+step 1) Create Maven project
+
+
+step 2) Next ==> catalog => internal ==> quickStart 1.1 ==> next => group id (com.cdac)  => artified id (newPROJECT)
+
+step 3) click y and enter
+
+step 4) pom.xml ==> add dependicies
+
+https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java    ===> selenium repo
+
+https://mvnrepository.com/artifact/org.testng/testng/7.7.0     ===> testng repo 
+
+
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.27.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.7.0</version>
+    <scope>test</scope>
+</dependency>
+
+
+step 5) go to main ==> App.java ==> WebDriver instance created BY ME ==> ctrl + shift + o (import package)
+
+STEP 6) inspect ==> left cornr icon ==> copy the xpath 
+
+
+hiroku app ==>  https://the-internet.herokuapp.com/login
+
+orangehrm login ==> https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+
+
+
+
+package com.cdac.acts.test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class NewTest {
+	  @Test
+	  public void f() throws InterruptedException {
+	    
+	    WebDriver driver = new ChromeDriver();
+	    driver.get("https://www.youtube.com/");
+	    Thread.sleep(2000);
+
+	    // Find the search input field and type in 'learnwithcdac'
+	    WebElement searchBox = driver.findElement(By.xpath("/html/body/ytd-app/div[1]/div[2]/ytd-masthead/div[4]/div[2]/yt-searchbox/div[1]/form/input"));
+	    searchBox.sendKeys("learnwithcdac");
+
+	    // Find the searcsh button and click it
+	    WebElement searchButton = driver.findElement(By.xpath("/html/body/ytd-app/div[1]/div[2]/ytd-masthead/div[4]/div[2]/yt-searchbox/button"));
+	    searchButton.click();
+	    
+	    
+	    Thread.sleep(4000);
+	    
+	    WebElement cancel = driver.findElement(By.xpath("/html/body/ytd-app/div[1]/div[2]/ytd-masthead/div[4]/div[2]/yt-searchbox/div[1]/div/button/yt-touch-feedback-shape/div/div[2]"));
+	    cancel.click();
+	    
+	    WebElement newsearch = driver.findElement(By.xpath("/html/body/ytd-app/div[1]/div[2]/ytd-masthead/div[4]/div[2]/yt-searchbox/div[1]/form/input"));
+	    newsearch.sendKeys("akshay");
+	    
+	    searchButton.click();
+	  }
+	}
+
+
+
+
+
+
+package cdac.newPROJETCT;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class App 
+{
+    public static void main( String[] args ) throws InterruptedException
+    {
+      WebDriver driver = new ChromeDriver();
+      
+      driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+      
+      Thread.sleep(5000);
+      
+      WebElement username = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input"));
+      
+      username.sendKeys("Admin");
+      
+//      Thread.sleep(5000);
+      
+ WebElement password = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input"));
+      
+      password.sendKeys("admin123");
+      
+      Thread.sleep(5000);
+      
+ WebElement click = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button"));
+      
+      click.click();
+      
+      Thread.sleep(5000);
+      
+      driver.close();      
+     
+      
+      
+    }
+}
+
+
+
+
+												
+
+												
+												
+												
+											
